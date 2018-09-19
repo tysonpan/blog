@@ -1,13 +1,45 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>测试不同的链接跳转形式</title>
+    <title>测试客户端通知h5事件</title>
 </head>
+<style type="text/css">
+    p{
+        font-size: 16px;
+    }
+    .before{
+        background-color: #ea6f5a;
+        color: #fff;
+        border-radius: 8px;
+        text-align: center;
+        padding: 5px 10px;
+    }
+    .after{
+        background-color: #42c02e;
+        color: #fff;
+        border-radius: 8px;
+        text-align: center;
+        padding: 5px 10px;
+    }
+</style>
 <body>
-<a href="https://www.baidu.com">普通a链接</a><br/>
-<a href="https://www.baidu.com" target="_blank">强制新开窗口的a链接</a><br/>
-<a href="javascript:window.location.href='https://www.baidu.com'">js跳转链接</a><br/>
-<a href="javascript:window.location.href='https://www.baidu.com?openWindow=1'">链接中加了参数（openWindow=1）的js跳转链接</a><br/>
+
+<p>客户端触发刷新：<span id="text1" class="before">未刷新</span></p>
+<p>手动触发刷新：<span id="text2" class="before">未刷新</span></p>
+
+<a href="javascript:clickRefreshComment()">手动触发刷新</a><br/>
+
+<script type="text/javascript">
+    function refreshComment(){
+        document.getElementById('text1').innerHTML = "已刷新";
+        document.getElementById('text1').className = 'after';
+    }
+
+    function clickRefreshComment(){
+        document.getElementById('text2').innerHTML = "已刷新";
+        document.getElementById('text2').className = 'after';
+    }
+</script>
 </body>
 </html>
